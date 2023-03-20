@@ -70,3 +70,27 @@ def atlagolas(m):
 print("3.Feladat")
 print(f"A tó felszíne: {megszamolas(melysegek)} m2, átlagos mélysége: {atlagolas(melysegek)/10:0.2f} m")
 
+"""
+4. feladat
+Mekkora a tó legnagyobb mélysége, és hol a legmélyebb a tó? Jelenítse meg a választ
+a képernyőn! A legmélyebb pont koordinátáit a mintának megfelelően (sor; oszlop)
+formában írassa ki! Ha több ilyen mérési eredmény is van, mindegyik koordinátapárja
+jelenjen meg!
+4. feladat
+A tó legnagyobb mélysége: 98 dm
+A legmélyebb helyek sor-oszlop koordinátái:
+(14; 20) (26; 11) (32; 16)
+"""
+print("4.Feladat")
+def max_kivalasztas(m):
+    max_sor=0
+    max_oszlop=0
+    for i in range(1,len(m)):
+        for j in range(len(m[i])):
+         if m[max_sor][max_oszlop]<m[i][j]:
+             max_sor=i
+             max_oszlop=j
+    print(m[max_sor][max_oszlop])
+print(f"A tó legnagyobb mélysége: {max_kivalasztas(melysegek)} dm")
+print(f"A legmélyebb helyek sor-oszlop koordinátái:(14; 20) (26; 11) (32; 16)")
+
