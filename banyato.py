@@ -37,7 +37,7 @@ A mért mélység az adott helyen 33 dm
 print("2.feladat")
 be_sor=int(input("A mérés sorának azonosítója:") or "12")
 be_oszlop=int(input("A mérés oszlopának azonosítója:")or 6)
-print(f"A mérés oszlopának azonosítója={melysegek[be_sor-1][be_oszlop-1]}dm")
+print(f"A mérés oszlopának azonosítója:{melysegek[be_sor-1][be_oszlop-1]}dm")
 
 
 """
@@ -57,6 +57,16 @@ def megszamolas(m):
                 db+=1
     return db
 atlagos_melyseg=0
+
+def atlagolas(m):
+    osszeg=0
+    darab=0
+    for seged_lista in m:
+        for elem in  seged_lista:
+            if elem>0:
+                darab+=1
+                osszeg+=elem
+    return osszeg/darab
 print("3.Feladat")
-print(f"A tó felszíne: {megszamolas(melysegek)} m2, átlagos mélysége: {atlagos_melyseg} m")
+print(f"A tó felszíne: {megszamolas(melysegek)} m2, átlagos mélysége: {atlagolas(melysegek)/10:0.2f} m")
 
