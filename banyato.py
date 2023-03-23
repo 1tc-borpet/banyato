@@ -100,9 +100,34 @@ def legmelyebb_pontok_koordinatai(m,max):
     for sor_index,sor in enumerate(m):
         for oszlop_index, elem in enumerate(sor):
             if elem==max:
-                print(f"({sor_index+1};{oszlop_index+1})",end="")
-
+                print(f"({sor_index+1};{oszlop_index+1})",end=" ")
+    print()
 
 legmelyebb_pontok_koordinatai(melysegek,melysegek[max_s][max_o])
-#legmelyebb_pontok_koordinatai(melysegek, melysegek[max_sor][max_oszlop])    
-#(14; 20) (26; 11) (32; 16)
+
+
+"""
+5. feladat
+Milyen hosszú a tó partvonala, vagyis az ábrán a szürkével jelölt részt határoló vastag fekete
+vonal hossza? A partvonalhoz vegye hozzá a tóban lévő szigetek kerületét is! Írassa ki
+az eredményt a mintának megfelelően a képernyőre! (A megoldás során felhasználhatja,
+hogy a táblázat első és utolsó sorában és oszlopában minden adat 0.) 
+5. feladat
+A tó partvonala 270 m hosszú
+"""
+def partvonal_hossza(m):
+    hossz=0
+    for i in range(1,len(m)-1):
+        for j in range(1,len(m[i])-1):
+            if m[i][j]>0:
+                if m[i-1][j]==0:
+                    hossz+=1
+                if m[i+1][j]==0:
+                    hossz+=1
+                if m[i][j-1]==0:
+                    hossz+=1
+                if m[i][j+1]==0:
+                    hossz+=1
+    return hossz
+
+print(f"A tó partvonala {partvonal_hossza(melysegek)} m hosszú")
