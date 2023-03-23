@@ -131,3 +131,20 @@ def partvonal_hossza(m):
     return hossz
 
 print(f"A tó partvonala {partvonal_hossza(melysegek)} m hosszú")
+
+
+"""
+6. feladat
+Kérje be a felhasználótól egy oszlop azonosítóját, és szemléltesse a diagram.txt
+szöveges állományban „sávdiagramon” a tó mélységét az adott oszlopban a következő
+módon! A sor elején jelenjen meg a mérési adat sorának azonosítója pontosan két
+számjeggyel, majd tegyen egymás mellé annyi csillagot (*), ahány méter az adott hely
+6. feladat
+A vizsgált szelvény oszlopának azonosítója=6
+"""
+
+print("6. Feladat")
+be_oszlop=int(input(f"A  vizsgált szelvény oszlopának azonosítója: ")or "6")-1
+with open("diagram.txt","w",encoding="UTF-8") as fm2:
+    for sor_index, sor in enumerate(melysegek):
+        print(f"{sor_index+1:2d}","*"*sor[be_oszlop])
