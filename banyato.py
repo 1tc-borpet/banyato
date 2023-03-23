@@ -90,7 +90,19 @@ def max_kivalasztas(m):
          if m[max_sor][max_oszlop]<m[i][j]:
              max_sor=i
              max_oszlop=j
-    print(m[max_sor][max_oszlop])
+    return max_sor, max_oszlop
+max_kivalasztas(melysegek)
+max_s, max_o=max_kivalasztas(melysegek)
 print(f"A tó legnagyobb mélysége: {max_kivalasztas(melysegek)} dm")
-print(f"A legmélyebb helyek sor-oszlop koordinátái:(14; 20) (26; 11) (32; 16)")
 
+print(f"A legmélyebb helyek sor-oszlop koordinátái:")
+def legmelyebb_pontok_koordinatai(m,max):
+    for sor_index,sor in enumerate(m):
+        for oszlop_index, elem in enumerate(sor):
+            if elem==max:
+                print(f"({sor_index+1};{oszlop_index+1})",end="")
+
+
+legmelyebb_pontok_koordinatai(melysegek,melysegek[max_s][max_o])
+#legmelyebb_pontok_koordinatai(melysegek, melysegek[max_sor][max_oszlop])    
+#(14; 20) (26; 11) (32; 16)
